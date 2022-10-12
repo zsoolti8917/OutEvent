@@ -10,7 +10,7 @@ services:
     - "8080:80"
     volumes:
     - ./src:/var/www/html
-    - ./config/ngnix/default.conf:/etc/ngnix/conf.d/default.conf
+    - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - mysql
       - php
