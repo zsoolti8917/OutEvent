@@ -17,6 +17,9 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
+use App\Orchid\Screens\EmailSenderScreen;
+use App\Orchid\Screens\Idea;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,8 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
+Route::screen('email', EmailSenderScreen::class)->name('platform.email');
+Route::screen('/idea', Idea::class)->name('platform.idea');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)
