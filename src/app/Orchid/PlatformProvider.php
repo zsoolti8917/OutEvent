@@ -30,7 +30,7 @@ class PlatformProvider extends OrchidServiceProvider
         return [
 
 
-            Menu::make(__('Roles'))
+            Menu::make(__('Roly'))
                 ->icon('lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles')
