@@ -23,7 +23,7 @@ class RoleListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', __('Name'))
+            TD::make('name', __('Názov'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -37,7 +37,7 @@ class RoleListLayout extends Table
                 ->cantHide()
                 ->filter(Input::make()),
 
-            TD::make('created_at', __('Created'))
+            TD::make('created_at', __('Vytvorené'))
                 ->sort()
                 ->render(function (Role $role) {
                     return $role->created_at->toDateTimeString();

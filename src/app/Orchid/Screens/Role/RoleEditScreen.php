@@ -44,7 +44,7 @@ class RoleEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Manage roles';
+        return 'Spravovať roly';
     }
 
     /**
@@ -54,7 +54,7 @@ class RoleEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Access rights';
+        return 'Prístupové práva';
     }
 
     /**
@@ -75,11 +75,11 @@ class RoleEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make(__('Save'))
+            Button::make(__('Uložit'))
                 ->icon('check')
                 ->method('save'),
 
-            Button::make(__('Remove'))
+            Button::make(__('Vymazať'))
                 ->icon('trash')
                 ->method('remove')
                 ->canSee($this->role->exists),
@@ -98,13 +98,13 @@ class RoleEditScreen extends Screen
                 RoleEditLayout::class,
             ])
                 ->title('Role')
-                ->description('A role is a collection of privileges (of possibly different services like the Users service, Moderator, and so on) that grants users with that role the ability to perform certain tasks or operations.'),
+                ->description('Rola je súbor privilégií (možno rôznych služieb, ako je služba Používatelia, Moderátor atď.), ktoré používateľom s touto rolou umožňujú vykonávať určité úlohy alebo operácie.'),
 
             Layout::block([
                 RolePermissionLayout::class,
             ])
-                ->title('Permission/Privilege')
-                ->description('A privilege is necessary to perform certain tasks and operations in an area.'),
+                ->title('Povolenie/Privilégium')
+                ->description('Na vykonávanie určitých úloh a operácií v oblasti je potrebné privilégium.'),
         ];
     }
 
@@ -134,7 +134,7 @@ class RoleEditScreen extends Screen
 
         $role->save();
 
-        Toast::info(__('Role was saved'));
+        Toast::info(__('Rola bola uložená.'));
 
         return redirect()->route('platform.systems.roles');
     }
@@ -150,7 +150,7 @@ class RoleEditScreen extends Screen
     {
         $role->delete();
 
-        Toast::info(__('Role was removed'));
+        Toast::info(__('Rola bola odstránená.'));
 
         return redirect()->route('platform.systems.roles');
     }

@@ -19,18 +19,18 @@ class ProfilePasswordLayout extends Rows
     {
         return [
             Password::make('old_password')
-                ->placeholder(__('Enter the current password'))
-                ->title(__('Current password'))
-                ->help('This is your password set at the moment.'),
+                ->placeholder(__('Zadajte staré heslo'))
+                ->title(__('Staré heslo:'))
+                ->help('Toto je vaše momentálne nastavené heslo.'),
 
             Password::make('password')
-                ->placeholder(__('Enter the password to be set'))
-                ->title(__('New password')),
+                ->placeholder(__('Zadajte nové heslo'))
+                ->title(__('Nové heslo:')),
 
             Password::make('password_confirmation')
-                ->placeholder(__('Enter the password to be set'))
-                ->title(__('Confirm new password'))
-                ->help('A good password is at least 15 characters or at least 8 characters long, including a number and a lowercase letter.'),
+                ->placeholder(__('Potvrďte nové heslo'))
+                ->title(__('Potvrdenie hesla:'))
+                ->help('Dobré heslo má aspoň 15 znakov alebo aspoň 8 znakov, vrátane čísla a malého písmena.'),
         ];
     }
 }
