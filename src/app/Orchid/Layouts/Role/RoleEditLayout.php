@@ -22,17 +22,17 @@ class RoleEditLayout extends Rows
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('picsa'))
-                ->placeholder(__('picsa'))
-                ->help(__('Role display name')),
+                ->title(__('Názov role'))
+                ->placeholder(__('Názov role'))
+                ->help(__('Zobrazovaný názov roly')),
 
             Input::make('role.slug')
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('fasz'))
-                ->placeholder(__('fasz'))
-                ->help(__('Actual name in the system')),
+                ->title(__('Login'))
+                ->placeholder(__('Login'))
+                ->help(__('Skutočné meno v systéme')),
         ];
     }
 }

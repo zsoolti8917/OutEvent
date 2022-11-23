@@ -51,7 +51,7 @@ class UserEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->user->exists ? 'Edit User' : 'Create User';
+        return $this->user->exists ? 'Upraviť používateľa' : 'Vytvoriť používateľa';
     }
 
     /**
@@ -61,7 +61,7 @@ class UserEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Details such as name, email and password';
+        return 'Podrobnosti ako meno, email a heslo';
     }
 
     /**
@@ -88,13 +88,13 @@ class UserEditScreen extends Screen
                 ->method('loginAs')
                 ->canSee($this->user->exists && \request()->user()->id !== $this->user->id),
 
-            Button::make(__('Remove'))
+            Button::make(__('Vymazať'))
                 ->icon('trash')
-                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                ->confirm(__('Po odstránení účtu budú natrvalo odstránené všetky jeho zdroje a údaje. Pred odstránením svojho účtu si stiahnite všetky údaje alebo informácie, ktoré si chcete ponechať.'))
                 ->method('remove')
                 ->canSee($this->user->exists),
 
-            Button::make(__('Save'))
+            Button::make(__('Uložiť'))
                 ->icon('check')
                 ->method('save'),
         ];
@@ -108,10 +108,10 @@ class UserEditScreen extends Screen
         return [
 
             Layout::block(UserEditLayout::class)
-                ->title(__('Profile Information'))
-                ->description(__('Update your account\'s profile information and email address.'))
+                ->title(__('Profilové informácie'))
+                ->description(__('Aktualizujte informácie o profile svojho účtu a e-mailovú adresu.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Uložiť'))
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -119,10 +119,10 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(UserPasswordLayout::class)
-                ->title(__('Password'))
-                ->description(__('Ensure your account is using a long, random password to stay secure.'))
+                ->title(__('Heslo'))
+                ->description(__('Uistite sa, že váš účet používa dlhé, náhodné heslo, aby ste zostali v bezpečí.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Uložiť'))
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -130,10 +130,10 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(UserRoleLayout::class)
-                ->title(__('Roles'))
-                ->description(__('A Role defines a set of tasks a user assigned the role is allowed to perform.'))
+                ->title(__('Roly'))
+                ->description(__('Rola definuje množinu úloh, ktoré môže používateľ s priradenou rolou vykonávať.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Uložiť'))
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -141,10 +141,10 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(RolePermissionLayout::class)
-                ->title(__('Permissions'))
-                ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
+                ->title(__('Povolenia'))
+                ->description(__('Umožniť používateľovi vykonávať niektoré akcie, ktoré nie sú zabezpečené jeho rolami.'))
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make(__('Uložiť'))
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -193,7 +193,7 @@ class UserEditScreen extends Screen
 
         $user->replaceRoles($request->input('user.roles'));
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Používateľ bol uložený.'));
 
         return redirect()->route('platform.systems.users');
     }
@@ -210,7 +210,7 @@ class UserEditScreen extends Screen
     {
         $user->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Používateľ bol odstránený'));
 
         return redirect()->route('platform.systems.users');
     }

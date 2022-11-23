@@ -27,7 +27,7 @@ class UserListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', __('Name'))
+            TD::make('name', __('Meno'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -35,7 +35,7 @@ class UserListLayout extends Table
                     return new Persona($user->presenter());
                 }),
 
-            TD::make('email', __('Email'))
+            TD::make('email', __('E-mail'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -49,7 +49,7 @@ class UserListLayout extends Table
                         ]);
                 }),
 
-            TD::make('updated_at', __('Last edit'))
+            TD::make('updated_at', __('Posledná úprava'))
                 ->sort()
                 ->render(function (User $user) {
                     return $user->updated_at->toDateTimeString();
@@ -63,13 +63,13 @@ class UserListLayout extends Table
                         ->icon('options-vertical')
                         ->list([
 
-                            Link::make(__('Edit'))
+                            Link::make(__('Upraviť'))
                                 ->route('platform.systems.users.edit', $user->id)
                                 ->icon('pencil'),
 
-                            Button::make(__('Delete'))
+                            Button::make(__('Vymazať'))
                                 ->icon('trash')
-                                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                                ->confirm(__('Po odstránení účtu budú natrvalo odstránené všetky jeho zdroje a údaje. Pred odstránením svojho účtu si stiahnite všetky údaje alebo informácie, ktoré si chcete ponechať.'))
                                 ->method('remove', [
                                     'id' => $user->id,
                                 ]),
