@@ -10,6 +10,6 @@
     <x-orchid-icon path="database"/>
 
     <span class="m-l d-none d-sm-block">
-        Created by ...
+        Created by Team 1
     </span>
 </p>
