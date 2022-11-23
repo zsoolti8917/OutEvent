@@ -28,6 +28,10 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
+            Menu::make(('Používatelia'))
+                ->icon('user')
+                ->route('platform.systems.users')
+                ->permission('platform.systems.users'),
 
 
             Menu::make(__('Roly'))
@@ -43,7 +47,7 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerProfileMenu(): array
     {
         return [
-            Menu::make('Profile')
+            Menu::make('Profil')
                 ->route('platform.profile')
                 ->icon('user'),
         ];

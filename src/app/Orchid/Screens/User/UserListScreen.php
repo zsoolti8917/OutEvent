@@ -40,7 +40,7 @@ class UserListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'User';
+        return 'Používatelia';
     }
 
     /**
@@ -50,7 +50,7 @@ class UserListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'All registered users';
+        return 'Všetci registrovaní užívatelia';
     }
 
     /**
@@ -71,7 +71,7 @@ class UserListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make(__('Add'))
+            Link::make(__('Pridať'))
                 ->icon('plus')
                 ->route('platform.systems.users.create'),
         ];
@@ -120,7 +120,7 @@ class UserListScreen extends Screen
 
         $user->fill($request->input('user'))->save();
 
-        Toast::info(__('User was saved.'));
+        Toast::info(__('Používateľ bol uložený.'));
     }
 
     /**
@@ -130,6 +130,6 @@ class UserListScreen extends Screen
     {
         User::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('User was removed'));
+        Toast::info(__('Používateľ bol odstránený.'));
     }
 }
