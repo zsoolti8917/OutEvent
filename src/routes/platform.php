@@ -34,7 +34,7 @@ use App\Orchid\Screens\Idea;
 
 // Main
 Route::screen('/main', PlatformScreen::class)
-    ->name('platform.main');
+    ->name('platform.fullcalender');
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 Route::screen('/idea', Idea::class)->name('platform.idea');
 
