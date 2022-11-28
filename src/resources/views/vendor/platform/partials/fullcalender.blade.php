@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel Fullcalender Tutorial Tutorial - ItSolutionStuff.com</title>
+    <title>Kalendár podujatí</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -16,7 +16,7 @@
 <body>
   
 <div class="container">
-    <h1>Kalendár podujatí</h1>
+    
     <div id='calendar'></div>
 </div>
    
