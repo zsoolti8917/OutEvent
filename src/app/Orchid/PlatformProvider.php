@@ -37,7 +37,28 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Roly'))
                 ->icon('lock')
                 ->route('platform.systems.roles')
-                ->permission('platform.systems.roles')
+                ->permission('platform.systems.roles'),
+
+                Menu::make('Miesta Konania')
+                ->icon('star')
+                ->route('platform.miestakonania'),
+
+                Menu::make('Nástenka')
+                ->icon('table')
+                ->route('platform.nastenka'),
+
+                Menu::make('Pracoviská')
+                ->icon('briefcase')
+                ->route('platform.pracoviska'),
+
+                Menu::make('Stretnutia')
+                ->icon('people')
+                ->route('platform.stretnutia'),
+
+                Menu::make('Udalosti')
+                ->icon('bell')
+                ->route('platform.udalosti')
+        
         ];
     }
 
