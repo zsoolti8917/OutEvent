@@ -33,16 +33,7 @@ class EventTagsListLayout extends Table
                     ->render(function (EventTags $eventtags) {
                         return Link::make($eventtags->name)
                             ->route('platform.systems.eventtags.edit',$eventtags);
-                    }),
-
-                    TD::make('address')
-                    ->sort()
-                    ->cantHide()
-                    ->filter(Input::make())
-                    ->render(function (EventTags $eventtags) {
-                        return Link::make($eventtags->address)
-                            ->route('platform.systems.eventtags.edit',$eventtags);
-                    }),
+                    })
 
             ];
         

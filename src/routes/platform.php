@@ -112,6 +112,23 @@ Route::screen('roles', RoleListScreen::class)
             ->push(__('Roles'), route('platform.systems.roles'));
     });
 
+    // Platform > System > Roles
+Route::screen('eventtags', EventTagsListScreen::class)
+->name('platform.systems.eventtags')
+->breadcrumbs(function (Trail $trail) {
+    return $trail
+        ->parent('platform.index')
+        ->push(__('Tagy'), route('platform.systems.eventtags'));
+});
+
+Route::screen('eventtags/{eventtags?}', \App\Orchid\Screens\Pracoviska\EventTagsEditScreen::class)
+    ->name('platform.systems.eventtags.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Tagy'), route('platform.systems.eventtags.edit'));
+    });
+
 // Example...
 Route::screen('example', ExampleScreen::class)
     ->name('platform.example')
