@@ -12,6 +12,8 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Role\PracoviskaListScreen;
+use App\Orchid\Screens\Role\PracoviskaEditScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -45,7 +47,6 @@ Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 Route::screen('/idea', Idea::class)->name('platform.idea');
 Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
 Route::screen('udalosti', Udalosti::class)->name('platform.udalosti');
-Route::screen('pracoviska', Pracoviska::class)->name('platform.pracoviska');
 Route::screen('stretnutia', Stretnutia::class)->name('platform.stretnutia');
 Route::screen('miestakonania', MiestaKonania::class)->name('platform.miestakonania');
 
@@ -110,6 +111,22 @@ Route::screen('roles', RoleListScreen::class)
         return $trail
             ->parent('platform.index')
             ->push(__('Roles'), route('platform.systems.roles'));
+    });
+
+    Route::screen('pracoviska', \App\Orchid\Screens\Pracoviska\PracoviskaListScreen::class)
+    ->name('platform.systems.pracoviska')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Pracoviska'), route('platform.systems.pracoviska'));
+    });
+
+    Route::screen('pracoviska/{pracoviska?}', \App\Orchid\Screens\Pracoviska\PracoviskaEditScreen::class)
+    ->name('platform.systems.pracoviska.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Pracoviska'), route('platform.systems.pracoviska.edit'));
     });
 
 // Example...

@@ -49,7 +49,7 @@ class PlatformProvider extends OrchidServiceProvider
 
                 Menu::make('Pracoviská')
                 ->icon('briefcase')
-                ->route('platform.pracoviska'),
+                ->route('platform.systems.pracoviska'),
 
                 Menu::make('Stretnutia')
                 ->icon('people')
