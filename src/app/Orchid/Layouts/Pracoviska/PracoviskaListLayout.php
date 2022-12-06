@@ -6,6 +6,8 @@ namespace App\Orchid\Layouts\Pracoviska;
 
 use Orchid\Platform\Models\Role;
 use Orchid\Platform\Models\Pracoviska;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Table;
@@ -35,13 +37,32 @@ class PracoviskaListLayout extends Table
                         ->route('platform.systems.pracoviska.update',$pracoviska->id);
                 }),
 
-                TD::make('address', 'Address')
+            TD::make('address', 'Address')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(function (\App\Models\Pracoviska $pracoviska) {
                     return Link::make($pracoviska->address)
                         ->route('platform.systems.pracoviska.update',$pracoviska->id);
+                }),
+                
+            TD::make(__('Actions'))
+                ->align(TD::ALIGN_CENTER)
+                ->width('100px')
+                ->render(function (\App\Models\Pracoviska $pracoviska) {
+                    return DropDown::make()
+                        ->icon('options-vertical')
+                        ->list([
+
+                            Link::make(__('Upraviť'))
+                                ->route('platform.systems.pracoviska.update', $pracoviska->id)
+                                ->icon('pencil'),
+
+                           /*  Button::make(__('Vymazať'))
+                                ->icon('trash')
+                                ->confirm(__('Po odstránení Pracoviska budú natrvalo odstránené všetky jeho údaje. Pred odstránením pracoviska stiahnite si všetky údaje alebo informácie, ktoré si chcete ponechať.'))
+                                ->method('remove'), */
+                        ]);
                 }),
 
         ];
