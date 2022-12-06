@@ -4,29 +4,30 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Pracoviska;
 
+use Orchid\Platform\Models\Pracoviska;
 use App\Orchid\Layouts\Pracoviska\PracoviskaEditLayout;
 use App\Orchid\Layouts\Pracoviska\PracoviskaPermissionLayout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Orchid\Platform\Models\Role;
-use Orchid\Platform\Models\Pracoviska;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
 class PracoviskaEditScreen extends Screen
 {
     /**
-     * @var Role
+     * @var \App\Models\Pracoviska
      */
     public $pracoviska;
 
     /**
      * Query data.
      *
-     * @param Role $role
+     * @param \App\Models\Pracoviska $role
      *
      * @return array
      */
@@ -77,7 +78,7 @@ class PracoviskaEditScreen extends Screen
             Button::make(__('Vymazať'))
                 ->icon('trash')
                 ->method('remove')
-                ->canSee($this->role->exists),
+                ->canSee($this->pracoviska->exists),
         ];
     }
 
@@ -91,9 +92,9 @@ class PracoviskaEditScreen extends Screen
         return [
             Layout::block([
                 PracoviskaEditLayout::class,
-            ])
-                ->title('Role')
-                ->description('Rola je súbor privilégií (možno rôznych služieb, ako je služba Používatelia, Moderátor atď.), ktoré používateľom s touto rolou umožňujú vykonávať určité úlohy alebo operácie.'),
+                ])
+                ->title('Pracoviska')
+                ->description('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
 
           
         ];
@@ -101,20 +102,20 @@ class PracoviskaEditScreen extends Screen
 
     /**
      * @param Request $request
-     * @param Role    $role
+     * @param \App\Models\Pracoviska    $role
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createOrUpdate(Pracoviska $pracoviska, Request $request)
+    public function createOrUpdate(\App\Models\Pracoviska $pracoviska, Request $request)
     {
         $pracoviska->fill($request->get('pracoviska'))->save();
 
-        Alert::info('You have successfully created a post.');
+        Alert::info('You have successfully saved.');
 
         return redirect()->route('platform.systems.pracoviska');
     }
 
-    public function remove(Pracoviska $pracoviska)
+    public function remove(\App\Models\Pracoviska $pracoviska)
     {
         $pracoviska->delete();
 
@@ -123,7 +124,7 @@ class PracoviskaEditScreen extends Screen
         return redirect()->route('platform.systems.pracoviska');
     }
     /**
-     * @param Role $role
+     * @param \App\Models\Pracoviska $role
      *
      * @throws \Exception
      *

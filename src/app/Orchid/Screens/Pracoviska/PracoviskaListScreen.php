@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Orchid\Screens\Pracoviska;
 
 use App\Orchid\Layouts\Pracoviska\PracoviskaListLayout;
-use Orchid\Platform\Models\Role;
 use Orchid\Platform\Models\Pracoviska;
+use Orchid\Platform\Models\Role;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -22,7 +22,7 @@ class PracoviskaListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'pracoviska' => Pracoviska::paginate()
+            'pracoviska' => \App\Models\Pracoviska::paginate()
         ];
     }
 

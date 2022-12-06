@@ -43,9 +43,11 @@ use App\Orchid\Screens\Udalosti;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.fullcalender');
+Route::screen('nastenka', Nastenka::class)
+    ->name('platform.nastenka');
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 Route::screen('/idea', Idea::class)->name('platform.idea');
-Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
+//Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
 Route::screen('udalosti', Udalosti::class)->name('platform.udalosti');
 Route::screen('stretnutia', Stretnutia::class)->name('platform.stretnutia');
 Route::screen('miestakonania', MiestaKonania::class)->name('platform.miestakonania');
@@ -121,13 +123,21 @@ Route::screen('roles', RoleListScreen::class)
             ->push(__('Pracoviska'), route('platform.systems.pracoviska'));
     });
 
-    Route::screen('pracoviska/{pracoviska?}', \App\Orchid\Screens\Pracoviska\PracoviskaEditScreen::class)
+    Route::screen('pracoviska/edit', \App\Orchid\Screens\Pracoviska\PracoviskaEditScreen::class)
     ->name('platform.systems.pracoviska.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.index')
-            ->push(__('Pracoviska'), route('platform.systems.pracoviska.edit'));
+            ->push(__('Pracoviska Edit'), route('platform.systems.pracoviska.edit'));
     });
+
+    Route::screen('pracoviska/{pracoviska}/update', \App\Orchid\Screens\Pracoviska\PracoviskaEditScreen::class)
+    ->name('platform.systems.pracoviska.update')
+    ->breadcrumbs(function (Trail $trail, $pracoviska) {
+        return $trail
+            ->parent('platform.systems.pracoviska')
+            ->push(__('Pracoviska Update'), route('platform.systems.pracoviska.update', $pracoviska));
+    });  
 
 // Example...
 Route::screen('example', ExampleScreen::class)

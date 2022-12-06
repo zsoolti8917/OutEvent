@@ -9,8 +9,10 @@ use Orchid\Screen\AsSource;
 class Pracoviska extends Model
 {
     use AsSource;
+    protected $table = 'pracoviska';
 
     protected $fillable = [
+        'id',
         'nazov',
         'address'
     ];

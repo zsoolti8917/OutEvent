@@ -25,26 +25,26 @@ class PracoviskaListLayout extends Table
     public function columns(): array
     {
         
-            return [
-                TD::make('nazov')
-                    ->sort()
-                    ->cantHide()
-                    ->filter(Input::make())
-                    ->render(function (Pracoviska $pracoviska) {
-                        return Link::make($pracoviska->name)
-                            ->route('platform.systems.pracoviska.edit',$pracoviska);
-                    }),
+        return [
+            TD::make('nazov', 'Nazov')
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make())
+                ->render(function (\App\Models\Pracoviska $pracoviska) {
+                    return Link::make($pracoviska->nazov)
+                        ->route('platform.systems.pracoviska.update',$pracoviska->id);
+                }),
 
-                    TD::make('address')
-                    ->sort()
-                    ->cantHide()
-                    ->filter(Input::make())
-                    ->render(function (Pracoviska $pracoviska) {
-                        return Link::make($pracoviska->address)
-                            ->route('platform.systems.pracoviska.edit',$pracoviska);
-                    }),
+                TD::make('address', 'Address')
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make())
+                ->render(function (\App\Models\Pracoviska $pracoviska) {
+                    return Link::make($pracoviska->address)
+                        ->route('platform.systems.pracoviska.update',$pracoviska->id);
+                }),
 
-            ];
+        ];
         
     }
 }
