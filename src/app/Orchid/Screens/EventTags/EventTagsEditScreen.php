@@ -4,29 +4,30 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\EventTags;
 
+use Orchid\Platform\Models\EventTags;
 use App\Orchid\Layouts\EventTags\EventTagsEditLayout;
 use App\Orchid\Layouts\EventTags\EventTagsPermissionLayout;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Orchid\Platform\Models\Role;
-use Orchid\Platform\Models\EventTags;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
 class EventTagsEditScreen extends Screen
 {
     /**
-     * @var Role
+     * @var \App\Models\EventTags
      */
     public $eventtags;
 
     /**
      * Query data.
      *
-     * @param Role $role
+     * @param \App\Models\EventTags $role
      *
      * @return array
      */
@@ -91,9 +92,9 @@ class EventTagsEditScreen extends Screen
         return [
             Layout::block([
                 EventTagsEditLayout::class,
-            ])
-                ->title('Role')
-                ->description('Rola je súbor privilégií (možno rôznych služieb, ako je služba Používatelia, Moderátor atď.), ktoré používateľom s touto rolou umožňujú vykonávať určité úlohy alebo operácie.'),
+                ])
+                ->title('Tagy')
+                ->description('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
 
           
         ];
@@ -101,20 +102,20 @@ class EventTagsEditScreen extends Screen
 
     /**
      * @param Request $request
-     * @param Role    $role
+     * @param \App\Models\EventTags  $role
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createOrUpdate(EventTags $eventtags, Request $request)
+    public function createOrUpdate(\App\Models\EventTags $eventtags, Request $request)
     {
         $eventtags->fill($request->get('eventtags'))->save();
 
-        Alert::info('You have successfully created a post.');
+        Alert::info('You have successfully saved.');
 
         return redirect()->route('platform.systems.eventtags');
     }
 
-    public function remove(EventTags $eventtags)
+    public function remove(\App\Models\EventTags $eventtags)
     {
         $eventtags->delete();
 
@@ -123,7 +124,7 @@ class EventTagsEditScreen extends Screen
         return redirect()->route('platform.systems.eventtags');
     }
     /**
-     * @param Role $role
+     * @param \App\Models\EventTags $role
      *
      * @throws \Exception
      *

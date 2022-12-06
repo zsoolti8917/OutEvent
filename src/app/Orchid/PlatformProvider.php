@@ -51,9 +51,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('briefcase')
                 ->route('platform.pracoviska'),
 
-                Menu::make('Stretnutia')
+                Menu::make('Event Tags')
                 ->icon('people')
-                ->route('platform.stretnutia'),
+                ->route('platform.systems.eventtags'),
 
                 Menu::make('Udalosti')
                 ->icon('bell')

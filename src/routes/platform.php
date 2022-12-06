@@ -12,6 +12,8 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Role\EventTagsEditScreen;
+use App\Orchid\Screens\Role\EventTagsListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -46,7 +48,6 @@ Route::screen('/idea', Idea::class)->name('platform.idea');
 Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
 Route::screen('udalosti', Udalosti::class)->name('platform.udalosti');
 Route::screen('pracoviska', Pracoviska::class)->name('platform.pracoviska');
-Route::screen('stretnutia', Stretnutia::class)->name('platform.stretnutia');
 Route::screen('miestakonania', MiestaKonania::class)->name('platform.miestakonania');
 
 // Platform > Profile
@@ -113,22 +114,29 @@ Route::screen('roles', RoleListScreen::class)
     });
 
     // Platform > System > Roles
-Route::screen('eventtags', EventTagsListScreen::class)
-->name('platform.systems.eventtags')
-->breadcrumbs(function (Trail $trail) {
-    return $trail
-        ->parent('platform.index')
-        ->push(__('Tagy'), route('platform.systems.eventtags'));
-});
+     Route::screen('eventtags', \App\Orchid\Screens\EventTags\EventTagsListScreen::class)
+    ->name('platform.systems.eventtags')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(('Tagy'), route('platform.systems.eventtags'));
+    });
 
-Route::screen('eventtags/{eventtags?}', \App\Orchid\Screens\Pracoviska\EventTagsEditScreen::class)
+    Route::screen('eventtags/edit', \App\Orchid\Screens\EventTags\EventTagsEditScreen::class)
     ->name('platform.systems.eventtags.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.index')
-            ->push(__('Tagy'), route('platform.systems.eventtags.edit'));
+            ->push(('Tag Edit'), route('platform.systems.eventtags.edit'));
     });
 
+    Route::screen('eventtags/{eventtags}/update', \App\Orchid\Screens\EventTags\EventTagsEditScreen::class)
+    ->name('platform.systems.eventtags.update')
+    ->breadcrumbs(function (Trail $trail, $eventtags) {
+        return $trail
+            ->parent('platform.systems.eventtags')
+            ->push(__('Pracoviska Update'), route('platform.systems.eventtags.update', $eventtags));
+    }); 
 // Example...
 Route::screen('example', ExampleScreen::class)
     ->name('platform.example')
