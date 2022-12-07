@@ -34,7 +34,7 @@ $.ajaxSetup({
 var calendar = $('#calendar').fullCalendar({
                     editable: true,
                     events: SITEURL + "/fullcalender",
-                    displayEventTime: false,
+                    displayEventTime: true,
                     editable: true,
                     eventRender: function (event, element, view) {
                         if (event.allDay === 'true') {

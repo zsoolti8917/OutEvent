@@ -16,16 +16,23 @@ class Udalosti extends Model
     protected $fillable = [
         //'id',
         'nazov',
-        'address'
+        'description',
+        'start_time',
+        'end_time',
+        'image'
     ];
 
     protected $allowedSorts = [
         'nazov',
-        'address'
+        'description',
+        'start_time',
+        'end_time',
     ];
 
     protected $allowedFilters = [
         'nazov',
-        'address'
+        'description',
+        'start_time',
+        'end_time',
     ];
 }

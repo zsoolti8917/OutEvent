@@ -65,7 +65,7 @@ class UdalostiListScreen extends Screen
      *
      * @return array
      */
-    public function asyncGetUser(\App\Models\Udalosti $udalosti): iterable
+    public function asyncGetUDalosti(\App\Models\Udalosti $udalosti): iterable
     {
         return [
             'udalosti' => $udalosti,

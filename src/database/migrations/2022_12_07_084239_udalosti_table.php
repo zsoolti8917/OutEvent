@@ -16,7 +16,10 @@ class UdalostiTable extends Migration
         Schema::create('udalosti', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
-            $table->string('address');
+            $table->text('description');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->json('image');
             $table->timestamps();
         });
     }

@@ -35,13 +35,34 @@ class UdalostiEditLayout extends Rows
                 ->title(__('Názov udalosti'))
                 ->placeholder(__('Názov udalosti'))
                 ->help(__('Zobrazovaný názov udalosti')),
-            Input::make('udalosti.address')
+            Input::make('udalosti.description')
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('udalosti Adresa'))
-                ->placeholder(__('udalosti Adresa'))
-                ->help(__('Zobrazovaný udalosti adresa')),
+                ->title(__('udalosti description'))
+                ->placeholder(__('udalosti description'))
+                ->help(__('Zobrazovaný description')),
+            Input::make('udalosti.start_time')
+                ->type('text')
+                ->max(255)
+                ->required()
+                ->title(__('start_time text1'))
+                ->placeholder(__('start_time text2'))
+                ->help(__('Zobrazovaný start_time text')),
+            Input::make('udalosti.end_time')
+                ->type('text')
+                ->max(255)
+                ->required()
+                ->title(__('end_time1'))
+                ->placeholder(__('end_time2'))
+                ->help(__('end_time3')),
+            Input::make('udalosti.image')
+                ->type('text')
+                ->max(255)
+                ->required()
+                ->title(__('image1'))
+                ->placeholder(__('image2'))
+                ->help(__('image3')),
         ];
     }
 }

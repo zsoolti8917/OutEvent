@@ -37,12 +37,36 @@ class UdalostiListLayout extends Table
                         ->route('platform.systems.udalosti.update',$udalosti->id);
                 }),
 
-            TD::make('address', 'Address')
+            TD::make('description', 'Description')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
                 ->render(function (\App\Models\Udalosti $udalosti) {
-                    return Link::make($udalosti->address)
+                    return Link::make($udalosti->description)
+                        ->route('platform.systems.udalosti.update',$udalosti->id);
+                }),
+                TD::make('start_time', 'Start_time')
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make())
+                ->render(function (\App\Models\Udalosti $udalosti) {
+                    return Link::make($udalosti->start_time)
+                        ->route('platform.systems.udalosti.update',$udalosti->id);
+                }),
+                TD::make('end_time', 'end_time')
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make())
+                ->render(function (\App\Models\Udalosti $udalosti) {
+                    return Link::make($udalosti->end_time)
+                        ->route('platform.systems.udalosti.update',$udalosti->id);
+                }),
+                TD::make('image', 'Image')
+                ->sort()
+                ->cantHide()
+                ->filter(Input::make())
+                ->render(function (\App\Models\Udalosti $udalosti) {
+                    return Link::make($udalosti->image)
                         ->route('platform.systems.udalosti.update',$udalosti->id);
                 }),
 
@@ -50,6 +74,16 @@ class UdalostiListLayout extends Table
                 ->sort()
                 ->render(function (\App\Models\Udalosti $udalosti) {
                     return $udalosti->created_at->toDateTimeString();
+                }),
+                TD::make('updated_at', __('Upravené'))
+                ->sort()
+                ->render(function (\App\Models\Udalosti $udalosti) {
+                    return $udalosti->updated_at->toDateTimeString();
+                }),
+                TD::make('deleted_at', __('Deleted'))
+                ->sort()
+                ->render(function (\App\Models\Udalosti $udalosti) {
+                    return $udalosti->deleted_at->toDateTimeString();
                 }),
                 
             TD::make(__('Actions'))
