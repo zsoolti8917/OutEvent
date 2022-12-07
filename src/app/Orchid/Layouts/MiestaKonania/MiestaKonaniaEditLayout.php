@@ -34,7 +34,7 @@ class MiestaKonaniaEditLayout extends Rows
                 ->required()
                 ->title(__('Názov miesta'))
                 ->placeholder(__('Názov miesta'))
-                ->help(__('Zobrazovaný názov miesta')),
+                ->help(__('Zobrazovaný názov miesta (napr. Hlavná budova, Fakulta alebo Katedra, miestnosť atď.)')),
             Input::make('miestakonania.address')
                 ->type('text')
                 ->max(255)

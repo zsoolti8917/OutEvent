@@ -55,7 +55,7 @@ class MiestaKonaniaEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Prístupové práva';
+        return null;
     }
 
     /**
@@ -94,7 +94,7 @@ class MiestaKonaniaEditScreen extends Screen
                 MiestaKonaniaEditLayout::class,
                 ])
                 ->title('Miesta konania')
-                ->description('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+                ->description('Tu môžete pridať/editovať/vymazať miesta konania udalostí.'),
 
           
         ];
@@ -110,7 +110,7 @@ class MiestaKonaniaEditScreen extends Screen
     {
         $miestakonania->fill($request->get('miestakonania'))->save();
 
-        Alert::info('You have successfully saved.');
+        Alert::info('Úspešne ste uložili miesto.');
 
         return redirect()->route('platform.systems.miestakonania');
     }
@@ -119,7 +119,7 @@ class MiestaKonaniaEditScreen extends Screen
     {
         $miestakonania->delete();
 
-        Alert::info('You have successfully deleted the post.');
+        Alert::info('Úspešne ste vymazali miesto.');
 
         return redirect()->route('platform.systems.miestakonania');
     }

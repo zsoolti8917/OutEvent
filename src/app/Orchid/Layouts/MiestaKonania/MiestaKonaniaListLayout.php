@@ -28,7 +28,7 @@ class MiestaKonaniaListLayout extends Table
     {
         
         return [
-            TD::make('nazov', 'Nazov')
+            TD::make('nazov', 'Názov')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -37,7 +37,7 @@ class MiestaKonaniaListLayout extends Table
                         ->route('platform.systems.miestakonania.update',$miestakonania->id);
                 }),
 
-            TD::make('address', 'Address')
+            TD::make('address', 'Adresa')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
