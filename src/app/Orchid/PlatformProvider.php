@@ -57,7 +57,7 @@ class PlatformProvider extends OrchidServiceProvider
 
                 Menu::make('Udalosti')
                 ->icon('text-center')
-                ->route('platform.udalosti')
+                ->route('platform.systems.udalosti')
         
         ];
     }
