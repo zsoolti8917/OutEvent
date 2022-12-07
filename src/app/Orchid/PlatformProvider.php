@@ -42,7 +42,24 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(('Miesta konania'))
                 ->icon('home')
                 ->route('platform.systems.miestakonania')
-                ->permission('platform.systems.users')
+                ->permission('platform.systems.users'),
+
+                Menu::make('Nástenka')
+                ->icon('table')
+                ->route('platform.nastenka'),
+
+                Menu::make('Pracoviská')
+                ->icon('briefcase')
+                ->route('platform.pracoviska'),
+
+                Menu::make('Stretnutia')
+                ->icon('people')
+                ->route('platform.stretnutia'),
+
+                Menu::make('Udalosti')
+                ->icon('bell')
+                ->route('platform.udalosti')
+        
         ];
     }
 

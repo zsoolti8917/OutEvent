@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\EmailSenderScreen;
 use App\Orchid\Screens\Idea;
+use App\Orchid\Screens\Nastenka;
+use App\Orchid\Screens\MiestaKonania;
+use App\Orchid\Screens\Pracoviska;
+use App\Orchid\Screens\Stretnutia;
+use App\Orchid\Screens\Udalosti;
+
 
 
 /*
@@ -39,6 +45,11 @@ Route::screen('/main', PlatformScreen::class)
     ->name('platform.fullcalender');
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 Route::screen('/idea', Idea::class)->name('platform.idea');
+Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
+Route::screen('udalosti', Udalosti::class)->name('platform.udalosti');
+Route::screen('pracoviska', Pracoviska::class)->name('platform.pracoviska');
+Route::screen('stretnutia', Stretnutia::class)->name('platform.stretnutia');
+Route::screen('miestakonania', MiestaKonania::class)->name('platform.miestakonania');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)
