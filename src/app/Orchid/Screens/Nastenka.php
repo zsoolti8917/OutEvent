@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Layout;
 
 class Nastenka extends Screen
 {
@@ -43,6 +44,8 @@ class Nastenka extends Screen
      */
     public function layout(): iterable
     {
-        return [];
+        return [
+            Layout::view('platform::partials.fullcalender')
+        ];
     }
 }

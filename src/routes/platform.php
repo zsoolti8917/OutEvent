@@ -12,6 +12,8 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Role\PracoviskaListScreen;
+use App\Orchid\Screens\Role\PracoviskaEditScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -41,11 +43,11 @@ use App\Orchid\Screens\Udalosti;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.fullcalender');
+Route::screen('nastenka', Nastenka::class)
+    ->name('platform.nastenka');
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 Route::screen('/idea', Idea::class)->name('platform.idea');
-Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
-Route::screen('udalosti', Udalosti::class)->name('platform.udalosti');
-Route::screen('pracoviska', Pracoviska::class)->name('platform.pracoviska');
+//Route::screen('nastenka', Nastenka::class)->name('platform.nastenka');
 Route::screen('stretnutia', Stretnutia::class)->name('platform.stretnutia');
 Route::screen('miestakonania', MiestaKonania::class)->name('platform.miestakonania');
 
@@ -111,6 +113,54 @@ Route::screen('roles', RoleListScreen::class)
             ->parent('platform.index')
             ->push(__('Roles'), route('platform.systems.roles'));
     });
+
+    Route::screen('pracoviska', \App\Orchid\Screens\Pracoviska\PracoviskaListScreen::class)
+    ->name('platform.systems.pracoviska')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Pracoviska'), route('platform.systems.pracoviska'));
+    });
+
+    Route::screen('pracoviska/edit', \App\Orchid\Screens\Pracoviska\PracoviskaEditScreen::class)
+    ->name('platform.systems.pracoviska.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Pracoviska Edit'), route('platform.systems.pracoviska.edit'));
+    });
+
+    Route::screen('pracoviska/{pracoviska}/update', \App\Orchid\Screens\Pracoviska\PracoviskaEditScreen::class)
+    ->name('platform.systems.pracoviska.update')
+    ->breadcrumbs(function (Trail $trail, $pracoviska) {
+        return $trail
+            ->parent('platform.systems.pracoviska')
+            ->push(__('Pracoviska Update'), route('platform.systems.pracoviska.update', $pracoviska));
+    });  
+
+    Route::screen('udalosti', \App\Orchid\Screens\Udalosti\UdalostiListScreen::class)
+    ->name('platform.systems.udalosti')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Udalosti'), route('platform.systems.udalosti'));
+    });
+
+    Route::screen('udalosti/edit', \App\Orchid\Screens\Udalosti\UdalostiEditScreen::class)
+    ->name('platform.systems.udalosti.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Udalosti Edit'), route('platform.systems.udalosti.edit'));
+    });
+
+    Route::screen('udalosti/{udalosti}/update', \App\Orchid\Screens\Udalosti\UdalostiEditScreen::class)
+    ->name('platform.systems.udalosti.update')
+    ->breadcrumbs(function (Trail $trail, $udalosti) {
+        return $trail
+            ->parent('platform.systems.udalosti')
+            ->push(__('Udalosti Update'), route('platform.systems.udalosti.update', $udalosti));
+    });  
 
 // Example...
 Route::screen('example', ExampleScreen::class)
