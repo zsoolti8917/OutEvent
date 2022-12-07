@@ -56,7 +56,7 @@ class UdalostiEditLayout extends Rows
                 ->format('Y-m-d')
                 ->title(__('end_time1')),
             Picture::make('udalosti.image')
-                ->storage('s3')
+               // ->storage('s3')
                 ->title(__('image1'))
 
         ];

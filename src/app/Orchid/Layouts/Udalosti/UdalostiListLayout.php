@@ -68,6 +68,7 @@ class UdalostiListLayout extends Table
                 ->render(function (\App\Models\Udalosti $udalosti) {
                     return Link::make($udalosti->image)
                         ->route('platform.systems.udalosti.update',$udalosti->id);
+                
                 }),
 
                 TD::make('created_at', __('Vytvorené'))

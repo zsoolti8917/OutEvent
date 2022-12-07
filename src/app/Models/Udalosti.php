@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
 use Orchid\Screen\AsSource;
 use Orchid\Filters\Filterable;
 
 
 class Udalosti extends Model
 {
-    use AsSource, Filterable;
+    use AsSource, Filterable, Attachable;
     protected $table = 'udalosti';
 
     protected $fillable = [
