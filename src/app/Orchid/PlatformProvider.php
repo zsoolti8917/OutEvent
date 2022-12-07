@@ -48,7 +48,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.nastenka'),
 
                 Menu::make('Pracoviská')
-                ->icon('briefcase')
+                ->icon('organization')
                 ->route('platform.systems.pracoviska'),
 
                 Menu::make('Stretnutia')
@@ -56,8 +56,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.stretnutia'),
 
                 Menu::make('Udalosti')
-                ->icon('bell')
-                ->route('platform.systems.udalosti')
+                ->icon('text-center')
+                ->route('platform.udalosti')
         
         ];
     }

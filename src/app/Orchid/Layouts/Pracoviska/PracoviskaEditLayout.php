@@ -33,15 +33,15 @@ class PracoviskaEditLayout extends Rows
                 ->max(255)
                 ->required()
                 ->title(__('Názov pracoviska'))
-                ->placeholder(__('Názov pracoviska'))
-                ->help(__('Zobrazovaný názov pracoviska')),
+                ->placeholder(__(''))
+                ->help(__('')),
             Input::make('pracoviska.address')
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('Pracoviska Adresa'))
-                ->placeholder(__('Pracoviska Adresa'))
-                ->help(__('Zobrazovaný pracoviska adresa')),
+                ->title(__('Adresa pracoviska'))
+                ->placeholder(__(''))
+                ->help(__('')),
         ];
     }
 }

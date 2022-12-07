@@ -38,7 +38,7 @@ class PracoviskaListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Spravovať pracoviska';
+        return 'Spravovať pracoviská';
     }
 
     /**
@@ -48,7 +48,7 @@ class PracoviskaListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Prístupové práva';
+        return null;
     }
 
     /**
@@ -79,7 +79,7 @@ class PracoviskaListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Create new')
+            Link::make('Pridať')
                 ->icon('pencil')
                 ->route('platform.systems.pracoviska.edit')
         ];
