@@ -47,7 +47,7 @@ class EventTagsListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Prístupové práva';
+        return null;
     }
 
     /**
@@ -78,7 +78,7 @@ class EventTagsListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Create new')
+            Link::make('Vytvoriť nový tag')
                 ->icon('pencil')
                 ->route('platform.systems.eventtags.edit')
         ];
