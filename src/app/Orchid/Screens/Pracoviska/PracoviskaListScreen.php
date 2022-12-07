@@ -27,7 +27,7 @@ class PracoviskaListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'pracoviska' => \App\Models\Pracoviska::paginate()
+            'pracoviska' => \App\Models\Pracoviska::filters()->defaultSort('id')->paginate()
         ];
     }
 

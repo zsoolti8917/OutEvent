@@ -45,6 +45,12 @@ class PracoviskaListLayout extends Table
                     return Link::make($pracoviska->address)
                         ->route('platform.systems.pracoviska.update',$pracoviska->id);
                 }),
+
+                TD::make('created_at', __('Vytvorené'))
+                ->sort()
+                ->render(function (\App\Models\Pracoviska $pracoviska) {
+                    return $pracoviska->created_at->toDateTimeString();
+                }),
                 
             TD::make(__('Actions'))
                 ->align(TD::ALIGN_CENTER)
