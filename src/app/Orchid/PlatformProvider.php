@@ -39,9 +39,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
 
-                Menu::make('Miesta Konania')
-                ->icon('star')
-                ->route('platform.miestakonania'),
+                Menu::make(('Miesta konania'))
+                ->icon('home')
+                ->route('platform.systems.miestakonania'),
 
                 Menu::make('Nástenka')
                 ->icon('table')
@@ -59,6 +59,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('text-center')
                 ->route('platform.systems.udalosti')
         
+            
         ];
     }
 

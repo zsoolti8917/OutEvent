@@ -16,6 +16,8 @@ use App\Orchid\Screens\Pracoviska\PracoviskaListScreen;
 use App\Orchid\Screens\Pracoviska\PracoviskaEditScreen;
 use App\Orchid\Screens\EventTags\EventTagsEditScreen;
 use App\Orchid\Screens\EventTags\EventTagsListScreen;
+use App\Orchid\Screens\MiestaKonania\MiestaKonaniaListScreen;
+use App\Orchid\Screens\MiestaKonania\MiestaKonaniaEditScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -188,6 +190,31 @@ Route::screen('roles', RoleListScreen::class)
             ->parent('platform.systems.eventtags')
             ->push(__('Pracoviska Update'), route('platform.systems.eventtags.update', $eventtags));
     }); 
+    Route::screen('miestakonania', \App\Orchid\Screens\MiestaKonania\MiestaKonaniaListScreen::class)
+    ->name('platform.systems.miestakonania')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(('MiestaKonania'), route('platform.systems.miestakonania'));
+    });
+
+    Route::screen('miestakonania/edit', \App\Orchid\Screens\MiestaKonania\MiestaKonaniaEditScreen::class)
+    ->name('platform.systems.miestakonania.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(('MiestaKonania Edit'), route('platform.systems.miestakonania.edit'));
+    });
+
+    Route::screen('miestakonania/{miestakonania}/update', \App\Orchid\Screens\MiestaKonania\MiestaKonaniaEditScreen::class)
+    ->name('platform.systems.miestakonania.update')
+    ->breadcrumbs(function (Trail $trail, $miestakonania) {
+        return $trail
+            ->parent('platform.systems.miestakonania')
+            ->push(__('MiestaKonania Update'), route('platform.systems.miestakonania.update', $miestakonania));
+    });
+
+
 // Example...
 Route::screen('example', ExampleScreen::class)
     ->name('platform.example')
