@@ -19,7 +19,7 @@ class UdalostiTable extends Migration
             $table->text('description');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->json('image');
+            $table->binary('image')->nullable();
             $table->timestamps();
         });
     }

@@ -80,11 +80,7 @@ class UdalostiListLayout extends Table
                 ->render(function (\App\Models\Udalosti $udalosti) {
                     return $udalosti->updated_at->toDateTimeString();
                 }),
-                TD::make('deleted_at', __('Deleted'))
-                ->sort()
-                ->render(function (\App\Models\Udalosti $udalosti) {
-                    return $udalosti->deleted_at->toDateTimeString();
-                }),
+
                 
             TD::make(__('Actions'))
                 ->align(TD::ALIGN_CENTER)
