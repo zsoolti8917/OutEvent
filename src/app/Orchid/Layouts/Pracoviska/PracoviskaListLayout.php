@@ -28,7 +28,7 @@ class PracoviskaListLayout extends Table
     {
         
         return [
-            TD::make('nazov', 'Nazov')
+            TD::make('nazov', 'Názov pracoviska')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -37,7 +37,7 @@ class PracoviskaListLayout extends Table
                         ->route('platform.systems.pracoviska.update',$pracoviska->id);
                 }),
 
-            TD::make('address', 'Address')
+            TD::make('address', 'Adresa pracoviska')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())

@@ -45,7 +45,7 @@ class PracoviskaEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Spravovať pracoviska';
+        return 'Spravovať pracoviská';
     }
 
     /**
@@ -55,7 +55,7 @@ class PracoviskaEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Prístupové práva';
+        return null;
     }
 
     /**
@@ -93,8 +93,8 @@ class PracoviskaEditScreen extends Screen
             Layout::block([
                 PracoviskaEditLayout::class,
                 ])
-                ->title('Pracoviska')
-                ->description('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+                ->title('Pracoviská')
+                ->description('Tu môžete vytvárať, upravovať a mazať adresy pracovísk.'),
 
           
         ];
@@ -110,7 +110,7 @@ class PracoviskaEditScreen extends Screen
     {
         $pracoviska->fill($request->get('pracoviska'))->save();
 
-        Alert::info('You have successfully saved.');
+        Alert::info('Zmeny boli uložené');
 
         return redirect()->route('platform.systems.pracoviska');
     }
@@ -119,7 +119,7 @@ class PracoviskaEditScreen extends Screen
     {
         $pracoviska->delete();
 
-        Alert::info('You have successfully deleted the post.');
+        Alert::info('Pracovisko bolo vymazané');
 
         return redirect()->route('platform.systems.pracoviska');
     }
