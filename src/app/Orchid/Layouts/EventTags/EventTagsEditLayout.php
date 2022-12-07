@@ -32,9 +32,9 @@ class EventTagsEditLayout extends Rows
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title(__('Tag'))
-                ->placeholder(__('Tag'))
-                ->help(__('Tag')),
+                ->title(__('Nový tag'))
+                ->placeholder(__(''))
+                ->help(__('')),
         ];
     }
 }

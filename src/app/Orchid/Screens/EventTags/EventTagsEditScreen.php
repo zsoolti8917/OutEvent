@@ -55,7 +55,7 @@ class EventTagsEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Prístupové práva';
+        return null;
     }
 
     /**
@@ -94,7 +94,7 @@ class EventTagsEditScreen extends Screen
                 EventTagsEditLayout::class,
                 ])
                 ->title('Tagy')
-                ->description('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+                ->description('Použite tagy na organizovanie svojich udalostí. Tu môžete vytvárať, upravovať a odstraňovať tagy.'),
 
           
         ];
@@ -110,7 +110,7 @@ class EventTagsEditScreen extends Screen
     {
         $eventtags->fill($request->get('eventtags'))->save();
 
-        Alert::info('You have successfully saved.');
+        Alert::info('Zmeny boli uložené.');
 
         return redirect()->route('platform.systems.eventtags');
     }
@@ -119,7 +119,7 @@ class EventTagsEditScreen extends Screen
     {
         $eventtags->delete();
 
-        Alert::info('You have successfully deleted the post.');
+        Alert::info('Tag bol vymazaný');
 
         return redirect()->route('platform.systems.eventtags');
     }
