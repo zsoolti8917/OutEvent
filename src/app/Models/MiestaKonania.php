@@ -9,7 +9,7 @@ use Orchid\Screen\AsSource;
 class MiestaKonania extends Model
 {
     use AsSource;
-    protected $table = 'miestakonania';
+    protected $table = 'miestakonania1';
 
     protected $fillable = [
         'nazov',

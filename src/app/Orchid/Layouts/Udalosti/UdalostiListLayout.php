@@ -28,7 +28,7 @@ class UdalostiListLayout extends Table
     {
         
         return [
-            TD::make('nazov', 'Nazov')
+            TD::make('nazov', 'Názov')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -37,7 +37,7 @@ class UdalostiListLayout extends Table
                         ->route('platform.systems.udalosti.update',$udalosti->id);
                 }),
 
-            TD::make('description', 'Description')
+            TD::make('description', 'Popis')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -45,7 +45,7 @@ class UdalostiListLayout extends Table
                     return Link::make($udalosti->description)
                         ->route('platform.systems.udalosti.update',$udalosti->id);
                 }),
-                TD::make('start_time', 'Start_time')
+                TD::make('start_time', 'Začiatok')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -53,7 +53,7 @@ class UdalostiListLayout extends Table
                     return Link::make($udalosti->start_time)
                         ->route('platform.systems.udalosti.update',$udalosti->id);
                 }),
-                TD::make('end_time', 'end_time')
+                TD::make('end_time', 'Koniec')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())

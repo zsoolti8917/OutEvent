@@ -24,7 +24,7 @@ class Nastenka extends Screen
      */
     public function name(): ?string
     {
-        return 'Nastenka';
+        return 'Nástenka';
     }
 
     /**

@@ -13,7 +13,7 @@ class MiestaKonaniaTable extends Migration
      */
     public function up()
     {
-        Schema::create('miestakonania', function (Blueprint $table) {
+        Schema::create('miestakonania1', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
             $table->string('address');
@@ -28,6 +28,6 @@ class MiestaKonaniaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('miestakonania');
+        Schema::dropIfExists('miestakonania1');
     }
 }

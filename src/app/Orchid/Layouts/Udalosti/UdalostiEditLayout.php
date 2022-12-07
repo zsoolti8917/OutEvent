@@ -42,19 +42,19 @@ class UdalostiEditLayout extends Rows
             TextArea::make('udalosti.description')
                 ->type('text')
                 ->required()
-                ->title(__('udalosti description'))
-                ->placeholder(__('udalosti description'))
-                ->help(__('Zobrazovaný description')),
+                ->title(__('Popis udalosti'))
+                ->placeholder(__('Popis udalosti'))
+                ->help(__('')),
             DateTimer::make('udalosti.start_time')
                 ->required()
                 ->allowInput()
                 ->format('Y-m-d')
-                ->title(__('start_time text1')),
+                ->title(__('Začiatok')),
             DateTimer::make('udalosti.end_time')
                 ->required()
                 ->allowInput()
                 ->format('Y-m-d')
-                ->title(__('end_time1')),
+                ->title(__('Konec')),
             Picture::make('udalosti.image')
                // ->storage('s3')
                 ->title(__('image1'))
