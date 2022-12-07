@@ -13,7 +13,7 @@ class EventTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventtags', function (Blueprint $table) {
+        Schema::create('eventtags1', function (Blueprint $table) {
             $table->id();
             $table->string('nazov');
             $table->timestamps();
@@ -27,6 +27,6 @@ class EventTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventtags');
+        Schema::dropIfExists('eventtags1');
     }
 }

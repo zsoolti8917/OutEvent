@@ -9,7 +9,7 @@ use Orchid\Screen\AsSource;
 class EventTags extends Model
 {
     use AsSource;
-protected $table = 'eventtags';
+protected $table = 'eventtags1';
     protected $fillable = [
         'nazov'
     ];
